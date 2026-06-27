@@ -12,3 +12,5 @@ Hope you enjoy using the bot. If you want to use the bot in your own Slack then:
 - create a .env file in the root of the project folder
     - Add SLACK_BOT_TOKEN & SLACK_APP_TOKEN to the env
 - save it and run ```node index.js```
+
+Make sure to check out Stardance for yourself: https://stardance.space/r-bjp86
