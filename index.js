@@ -20,12 +20,20 @@ app.command("/tacobot-random-quote", async ({ command, ack, respond }) => {
     await ack();
 
     try {
-        const response = await axios.get("https://type.fit/api/quotes");
-        await respond({ text: `${response.data[0].text} - ${response.data[0].author}` });
+        const response = await axios.get("https://api.quotable.io/random");
+        await respond({ text: `${response.data[0].content} - ${response.data[0].author}` });
     } catch (error) {
         console.log(error);
         await respond({ text: "Failed to fetch a random quote." });
     }
+});
+
+app.command("/tacobot-roll", async ({ command, ack, respond }) => {
+    await ack();
+
+    const sides = parseInt(command.text) || 6;
+    const roll = Math.floor(Math.random() * sides) + 1;
+    await respond({ text: `You rolled a ${roll}!` });
 });
 
 (async () => {
