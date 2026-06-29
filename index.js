@@ -20,8 +20,8 @@ app.command("/tacobot-random-quote", async ({ command, ack, respond }) => {
     await ack();
 
     try {
-        const response = await axios.get("https://api.quotable.io/random");
-        await respond({ text: `${response.data[0].content} - ${response.data[0].author}` });
+        const response = await axios.get("https://dummyjson.com/quotes/random");
+        await respond({ text: `${response.data.quote} - ${response.data.author}` });
     } catch (error) {
         console.log(error);
         await respond({ text: "Failed to fetch a random quote." });
